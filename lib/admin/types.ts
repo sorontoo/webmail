@@ -317,6 +317,10 @@ export const CONFIG_ENV_MAP: Record<string, { envVar: string; fileEnvVar?: strin
   // authorization_endpoint.
   oauthAuthorizeUrl: { envVar: 'OAUTH_AUTHORIZE_URL', type: 'url', defaultValue: '' },
   oauthScopes: { envVar: 'OAUTH_SCOPES', type: 'string', defaultValue: '' },
+  // RFC 8707 resource indicator added to the authorization request, so the
+  // provider issues the access token for that API (its `aud`). Like the issuer
+  // it belongs to the global provider: not sent for a server entry (#952).
+  oauthResource: { envVar: 'OAUTH_RESOURCE', type: 'url', defaultValue: '' },
   oauthExtraScopes: { envVar: 'OAUTH_EXTRA_SCOPES', type: 'string', defaultValue: '' },
   oauthAllowPrivateEndpoints: { envVar: 'OAUTH_ALLOW_PRIVATE_ENDPOINTS', type: 'boolean', defaultValue: false },
   // Signing out of an SSO account also ends the identity provider's session
